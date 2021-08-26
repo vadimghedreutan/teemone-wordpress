@@ -1,0 +1,28 @@
+{
+  "name": "teemone",
+  "version": "1.0.0",
+  "description": "Restaurant Website",
+  "author": "Vadim Ghedreutan",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "Teemone",
+    "Restaurant"
+  ],
+  "dependencies": {
+    "concurrently": "^5.0.0",
+    "gsap": "^3.0.1",
+    "node-sass": "^4.13.0"
+  },
+  "scripts": {
+    "watch": "node-sass --watch sass/style.scss sass/style.css",
+    "build": "nodemon --exec babel-node ./js/* ",
+    "start": "concurrently \"npm run watch\" \"npm run build\""
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.4",
+    "@babel/core": "^7.7.4",
+    "@babel/node": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "nodemon": "^2.0.1"
+  }
+}

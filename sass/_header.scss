@@ -1,0 +1,110 @@
+header {
+  position: fixed;
+  width: 100%;
+  background-color: var(--dark);
+  z-index: 20;
+
+  .header_inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    height: 100px;
+    @media(max-width: 480px){
+      grid-template-columns: 1fr; 
+      grid-template-rows: repeat(2, 1fr);
+    }
+
+    .nav, .social {
+      display: flex;
+      flex-direction: row;
+    }
+  
+    .nav {
+      @media(max-width: 480px){
+        order: 2;
+        justify-content: center;
+      }
+      li {
+        margin-right: 0.625rem;
+        &:nth-child(5) {
+          margin-right: 0;
+        }
+        a {
+          position: relative;
+          text-transform: uppercase;
+          font-family: var(--fontTitle);
+          font-weight: 400;
+          color: var(--white);
+          font-size: 1rem;
+          @media(max-width: 480px){
+            font-size: 0.6rem;
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 0px;
+            height: 2px;
+            margin: auto;
+            background: transparent;
+            transition: width .3s ease, background-color .3s ease;
+          }
+          &:hover::after {
+            background: var(--yellow);
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .logo {
+      justify-self: center;
+      @media(max-width: 480px){
+        order: 1;
+        padding-top: 5px;
+      }
+      
+      img {
+        width: 74px;
+        @media(max-width: 480px){
+          width: 50px;
+        }
+      }
+    }
+
+    .social {
+      justify-self: end;
+      cursor: pointer;
+      @media(max-width: 480px){
+        position: absolute;
+        right: -10px;
+        bottom: 5px;
+
+        img {
+          width: 16px;
+        }
+      }
+
+      li {
+        margin-right: 1.25rem;
+        @media(max-width: 480px){
+          margin-right: 0.8rem;
+        }
+        &:nth-child(2) {
+          margin-right: 0;
+        }
+        a {
+          fill: var(--white);
+        }
+      }
+    }
+
+    .grow {
+      transition: all .2s cubic-bezier(0.42, 0, 1, 1);
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+}
